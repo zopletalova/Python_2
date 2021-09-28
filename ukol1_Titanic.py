@@ -28,9 +28,8 @@ print()
 #Bonus-TITANIC
 df_FirstClass = df_titanic[df_titanic["Pclass"] == 1]
 df_FirstClass["age_group"] = pd.cut(df_FirstClass["Age"], bins=[0, 12, 19, 65, 100], labels=["Dítě", "Teenager", "Dospělý", "Senior"])
-#Tady vidím, že tam nebyla žádná žena starší 65 - dělní nulou - proto NaN v kontingenční tabulce
+#Tady vidím, že tam nebyla žádná žena starší 65 - proto NaN v kontingenční tabulce
 #seniori = df_FirstClass[df_FirstClass['Age'] > 65]
 #print(seniori[["Sex", "Age", "Survived"]])
 df_FirstClass_pivot = pd.pivot_table(df_FirstClass, index="Sex", columns="age_group", values="Survived",fill_value=0, aggfunc=numpy.mean)
 print(df_FirstClass_pivot)
-
