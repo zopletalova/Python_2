@@ -22,7 +22,7 @@ president1_sorted = president1.sort_values(["state", "year"])
 
 # Pomocí shift přidám sloupec s vítězem následujících voleb:
 president1_sorted["party_detailed_next"] = president1_sorted["party_detailed"].shift(periods=-1)
-# Vyhodíme rok 2020:
+# Vyhodím rok 2020:
 president1_sorted = president1_sorted[president1_sorted["year"] != 2020]
 # Dodám sloupec changed, hodnota 1 = změna vítěze:
 president1_sorted["changed"] = numpy.where(president1_sorted["party_detailed"] != president1_sorted["party_detailed_next"], 1, 0)
