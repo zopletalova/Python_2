@@ -35,7 +35,7 @@ print()
 # Seskupím podle států a posčítám v rámci nich změny, seřadím od nejvíc "swinging":
 president1_final = president1_sorted.groupby(["state"]).sum("changed")
 president1_final = president1_final.sort_values(["changed"], ascending=False)
-print("VÝSLEDEK - Státy,kde se nejvíc střídaly vítězné strany - počet změn = changed:")
+print("VÝSLEDEK - Státy, kde se nejvíc střídaly vítězné strany - počet změn = changed:")
 print(president1_final[["changed"]])
 print()
 
