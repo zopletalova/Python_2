@@ -10,7 +10,7 @@ def check_url(radek):
   elif (radek.image_src.endswith("jpg")|radek.image_src.endswith("JPG")) == False:
     image_err = radek.title+" : "+radek.image_src
   else:
-    image_err = ""
+    image_err = "no_err"
   return image_err
 
 
@@ -21,7 +21,7 @@ lexikon = pd.read_csv("lexikon-zvirat.csv", sep=";")
 # Alternativa k nastavení indexu
 # lexikon = pd.read_csv("lexikon-zvirat.csv", sep=";", index_col="id")
 
-# Nastavení indexu pomocí set_index
+# Nastavení indexu
 lexikon = lexikon.set_index("id")
 
 print(lexikon.shape)
@@ -38,7 +38,7 @@ print("Vypisuji seznam zvířat s neplatnou url obrázku - ta je uvedena za dvoj
 count = 0
 for radek in lexikon.itertuples():
     image_err = check_url(radek)
-    if image_err != "":
+    if image_err != "no_err":
         count += 1
         print(image_err)
 print()
