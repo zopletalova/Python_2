@@ -21,17 +21,15 @@ lexikon = pd.read_csv("lexikon-zvirat.csv", sep=";")
 # Alternativa k nastavení indexu
 # lexikon = pd.read_csv("lexikon-zvirat.csv", sep=";", index_col="id")
 
-print(lexikon.shape)
+# Nastavení indexu pomocí set_index
+lexikon = lexikon.set_index("id")
 
+print(lexikon.shape)
 # Smažu sloupec se všemi nulami a řádek se všemi nulami
 lexikon = lexikon.dropna(axis=1, how="all")
 lexikon = lexikon.dropna(how="all")
 # Vidím, že se skutečně snížil počet sloupců i řádků o jeden
 print(lexikon.shape)
-
-# Nastavení indexu
-lexikon = lexikon.set_index("id")
-
 print(lexikon.columns)
 print(lexikon.head())
 
