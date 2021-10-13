@@ -39,7 +39,7 @@ count = 0
 for radek in lexikon.itertuples():
     image_err = check_url(radek)
     if image_err != "":
-        count = count+1
+        count += 1
         print(image_err)
 print()
 print(f"Počet zvířat se špatnou url obrázku je {count}")
