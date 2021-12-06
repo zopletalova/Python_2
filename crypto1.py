@@ -115,6 +115,8 @@ crypto_close = cryptox[["Aave", "Bitcoin", "Litecoin", "Binance Coin", "USD Coin
                    "TRON","EOS","Tether","Ethereum","Stellar","IOTA","Solana","Monero","Polkadot","NEM"]]
 
 crypto_change = crypto_close.pct_change()
+crypto_change = crypto_change.dropna()
+
 print("Tabulka změn:")
 print(crypto_change)
 print()
@@ -148,9 +150,9 @@ bit_lit2 = pd.merge(bit,lit, on=["Date"], how = "left", suffixes=["BIT", "LIT"])
 bit_lit2 = bit_lit2.head(30)
 bit_lit2 = bit_lit2[["Date", "CloseBIT", "CloseLIT"]]
 bit_lit2 = bit_lit2.sort_values("Date")
-bit_lit2.plot(x="Date", kind = "line")
+bit_lit2.plot(x="Date", kind = "line", title = "Bitcoin vs Litecoin")
 plt.show()
-print("Každý absolutně na jiné úrovni, ale relativně vývoj obdobný.")
+print("BITCOIN - LITECOIN: Každý absolutně na jiné úrovni, ale relativně vývoj obdobný.")
 print()
 
 tet = crypto[crypto["Name"]== "Tether"]
@@ -159,6 +161,6 @@ tet_mon2 = pd.merge(tet,mon, on=["Date"], how = "left", suffixes=["TET", "MON"])
 tet_mon2 = tet_mon2.head(30)
 tet_mon2 = tet_mon2[["Date", "CloseTET", "CloseMON"]]
 tet_mon2 = tet_mon2.sort_values("Date")
-tet_mon2.plot(x="Date", kind = "line")
+tet_mon2.plot(x="Date", kind = "line", title = "Tether vs Monero")
 plt.show()
-print("Jeden se vlní a druhý je čára - rozdílný trend vývoje.")
+print("TETHER - MONERO: Jeden se vlní a druhý je čára - rozdílný trend vývoje.")
