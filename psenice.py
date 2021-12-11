@@ -6,7 +6,7 @@ with requests.get("https://raw.githubusercontent.com/pesikj/progr2-python/master
   open("psenice.csv", 'w', encoding="utf-8").write(r.text)
 
 psenice = pd.read_csv("psenice.csv")
-print(psenice.head(100))
+print(psenice.head(10))
 
 print()
 print("Hypotéza HO: Rosa a Canadian mají v průměru stejně dlouhá zrna.")
