@@ -20,14 +20,14 @@ r = requests.get("https://raw.githubusercontent.com/lutydlitatova/czechitas-data
 open("water-potability.csv", 'wb').write(r.content)
 
 data = pandas.read_csv("water-potability.csv")
-data.shape
+print(data.shape)
 
-data.head()
+print(data.head())
 
-data.isna().sum()
+print(data.isna().sum())
 
 data = data.dropna()
-data.shape
+print(data.shape)
 
 data["Potability"].value_counts(normalize=True)
 
