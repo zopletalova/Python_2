@@ -25,7 +25,9 @@ print(data.shape)
 print(data.head())
 
 print(data.isna().sum())
+#Žádné nulové hodnoty
 
+print(data["target"].value_counts(normalize=True))
 #Normalizovat není třeba
 
 X = data.drop(columns=["target"])
