@@ -29,7 +29,7 @@ print(data.isna().sum())
 data = data.dropna()
 print(data.shape)
 
-data["Potability"].value_counts(normalize=True)
+print(data["Potability"].value_counts(normalize=True))
 
 X = data.drop(columns=["Potability"])
 y = data["Potability"]
